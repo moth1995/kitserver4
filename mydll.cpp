@@ -258,7 +258,7 @@ DWORD dtaArray[NUM_GUIDS][DATALEN] = {
 		0x215dce0, 0x215dce4,
 		0xaca7e4,
 		9223296, 9223440, 9223584, 9223728, 9223872, 
-		0x45e58d, 0x676737, 0x9da8C8,
+		0x45e58d, 0x67661b, 0x9da8C8,
 		0x525fe2, 0x528d63, 0x52b57e,
 		0x52b584, 0x55bca1, 0x58df55,
 	},
@@ -271,7 +271,7 @@ DWORD dtaArray[NUM_GUIDS][DATALEN] = {
 		0x215bd30, 0x215bd34,
 		0xac87fc,
 		9219184, 9219328, 9219472, 9219616, 9219760, 
-		0x45e3ad, 0x6764A7, 0x9d9890,
+		0x45e3ad, 0x067638b, 0x9d9890,
 		0x525e72, 0x528bf3, 0x52b40e,
 		0x52b414, 0x55bb31, 0x58dde5,
 	},
@@ -284,7 +284,7 @@ DWORD dtaArray[NUM_GUIDS][DATALEN] = {
 		0x215dd20, 0x215dd24,
 		0xaca824,
 		9227168, 9227312, 9227456, 9227600, 9227744, 
-		0x45e55d, 0x676ed7, 0x9db600,
+		0x45e55d, 0x676dbb, 0x9db600,
 		0x525fd2, 0x528a93, 0x52b2ae,
 		0x52b2b4, 0x55b9d1, 0x58dc85,
 	},
@@ -297,7 +297,7 @@ DWORD dtaArray[NUM_GUIDS][DATALEN] = {
 		0x2154318, 0x215431c,
 		0x9e0068,
 		6775488, 6775632, 6775776, 6775920, 6776064, 
-		0x6d6f6d, 0x8bb417, 0x9ad584,
+		0x6d6f6d, 0x8bb3b4, 0x9ad584,
 		0x79ec52, 0x7a1713, 0x7a3f3e,
 		0x7a3f44, 0x7d48f1, 0x806685,
 	},
@@ -4113,18 +4113,18 @@ void SetCameraData()
 	if (dta[FIX_STAD_CLIPPING] && g_camera_config.fixStadiumClip)
 	{
         DWORD* addr = (DWORD*)dta[FIX_STAD_CLIPPING];
-        if (VirtualProtect(addr, 0x320, newProtection, &protection))
+        if (VirtualProtect(addr, 0x40A, newProtection, &protection))
         {
             *(BYTE*)addr = (BYTE)0xEB;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x4f) = (BYTE)0xEB;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x17e) = (BYTE)0xEB;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x195) = (BYTE)0xEB;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x225) = (BYTE)0xEB;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x2ce) = (BYTE)0xEB;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0xc0) = (BYTE)0xEB;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0xfb) = (BYTE)0xEB;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x11c) = (BYTE)0xEB;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x131) = (BYTE)0xEB;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x3ea) = (BYTE)0xEB;
 
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x2eb) = (BYTE)0x90;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x2ec) = (BYTE)0x90;
-            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x2ed) = (BYTE)0x90;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x407) = (BYTE)0x90;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x408) = (BYTE)0x90;
+            *(BYTE*)(dta[FIX_STAD_CLIPPING] + 0x409) = (BYTE)0x90;
             Log("Stadium clipping fixed correctly");
         }
 		else
