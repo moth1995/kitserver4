@@ -1135,7 +1135,7 @@ IDirect3DDevice8* self, D3DPRESENT_PARAMETERS* params)
 	// clean-up
 	if (g_rgbBuf != NULL) 
 	{
-		HeapFree(procHeap, 0, g_rgbBuf);
+		HeapFree(GetProcessHeap(), 0, g_rgbBuf);
 		g_rgbBuf = NULL;
 	}
 
